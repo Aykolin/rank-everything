@@ -1,0 +1,43 @@
+[project]
+name = "rank-everything"
+version = "0.5.0"
+description = "Aplicativo pessoal para criar rankings de qualquer tema"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "flet==1.0.1",
+]
+
+[dependency-groups]
+dev = [
+    "flet-cli==1.0.1",
+    "flet-desktop==1.0.1",
+    "flet-web==1.0.1",
+    "pytest==8.4.2",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.flet]
+org = "com.rankeverything"
+bundle_id = "com.rankeverything.rank_everything"
+product = "Rank Everything"
+company = "Rank Everything"
+copyright = "Copyright 2026"
+icon_background = "#1E1E2E"
+build_number = 5
+
+[tool.flet.android]
+artifact = "rank-everything"
+adaptive_icon_background = "#1E1E2E"
+
+[tool.flet.android.manifest_application]
+allowBackup = "false"
+usesCleartextTraffic = "false"
+
+[tool.flet.app]
+path = "src"
+exclude = ["tests", "__pycache__", "*.pyc"]
+

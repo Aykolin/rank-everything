@@ -1,0 +1,11 @@
+.venv/
+.flet/
+build/
+dist/
+data/
+__pycache__/
+*.pyc
+*.jks
+*.keystore
+.env
+.env.*
