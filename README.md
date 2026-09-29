@@ -27,7 +27,7 @@ O projeto foi desenvolvido em Python com Flet, usa SQLite para persistência loc
 - armazenamento local em SQLite;
 - funcionamento offline, sem anúncios e sem cadastro;
 - interface disponível em Português (Brasil) e English;
-- ícone adaptativo e configuração para publicação na Google Play.
+- ícone adaptativo para Android.
 
 ## Tecnologias
 
@@ -83,29 +83,13 @@ pytest -q
 
 Os testes cobrem regras de ordenação, comparação, persistência, migrações, navegação e perfis responsivos.
 
-## Android
-
-### APK para testes
+## Gerando o APK para Android
 
 ```bash
 flet build apk
 ```
 
-O APK de teste é criado dentro da pasta `build/apk/`.
-
-### AAB para a Google Play
-
-Para publicar, crie uma chave de upload própria e mantenha o arquivo e as senhas fora do repositório. Configure as variáveis somente no ambiente local:
-
-```powershell
-$env:FLET_ANDROID_SIGNING_KEY_STORE="C:\caminho\upload-keystore.jks"
-$env:FLET_ANDROID_SIGNING_KEY_STORE_PASSWORD="senha-do-keystore"
-$env:FLET_ANDROID_SIGNING_KEY_PASSWORD="senha-da-chave"
-$env:FLET_ANDROID_SIGNING_KEY_ALIAS="upload"
-.\tools\build-playstore.ps1
-```
-
-Nunca publique arquivos `.jks`, `.keystore`, `.env` ou senhas. Esses arquivos já estão excluídos pelo `.gitignore`.
+O arquivo será criado dentro da pasta `build/apk/` e pode ser instalado manualmente em um dispositivo Android para uso pessoal ou testes.
 
 ## Estrutura do projeto
 
@@ -126,9 +110,7 @@ rank_everything/
 │       ├── repository.py
 │       ├── services.py
 │       └── theme.py
-├── store-assets/
 ├── tests/
-├── tools/
 ├── pyproject.toml
 └── README.md
 ```
@@ -139,19 +121,7 @@ Os rankings são armazenados no banco local `rank_everything.db`. O aplicativo n
 
 Durante o desenvolvimento, o banco fica na pasta `data/`, que não é versionada. No Android, ele fica no armazenamento privado do aplicativo.
 
-## Materiais da loja
-
-A pasta `store-assets/` contém:
-
-- ícone de 512 × 512 pixels;
-- imagem de destaque de 1024 × 500 pixels;
-- descrição para a Google Play;
-- política de privacidade;
-- declaração de segurança dos dados;
-- notas da versão;
-- checklist de lançamento.
-
 ## Status
 
-O projeto está em desenvolvimento e já possui uma versão funcional para testes locais e preparação para teste fechado na Google Play.
+O projeto está em desenvolvimento e já possui uma versão funcional para uso pessoal e testes locais.
 
